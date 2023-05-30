@@ -1,9 +1,13 @@
+import Welcome from './components/Welcome';
+import './App.css'
+
 function App() {
 
   return (
-    <>
-      Hello World
-    </>
+    <div className="App">
+      <h1>Programming Quiz</h1>
+      <Welcome />
+    </div>
   )
 }
 
