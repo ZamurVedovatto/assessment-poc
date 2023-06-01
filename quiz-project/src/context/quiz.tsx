@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { createContext, useReducer } from 'react';
 import questions from './../data/questions';
 
@@ -20,7 +21,6 @@ const quizReducer = (state, action) => {
             }
             return state;
         case "REORDER_QUESTIONS":
-            // eslint-disable-next-line no-case-declarations
             const reorderedQuestions = state.questions.sort(() => {
                 return Math.random() - 0.5
             });
@@ -28,6 +28,13 @@ const quizReducer = (state, action) => {
             return {
                 ...state,
                 questions: reorderedQuestions
+            }
+        case "CHANGE_QUESTION":
+            const nextQuestion = state.currentQuestion + 1;
+            
+            return {
+                ...state,
+                currentQuestion: nextQuestion
             }
         default:
             return state;
