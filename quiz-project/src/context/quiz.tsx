@@ -9,11 +9,10 @@ const initialState = {
     questions,
     currentQuestion: 0,
     score: 0,
+    disableAnswerButton: true,
 }
 
 const quizReducer = (state, action) => {
-    console.log(state, action)
-
     switch (action.type) {
         case "CHANGE_STATE":
             return {
@@ -35,9 +34,22 @@ const quizReducer = (state, action) => {
                 ...state,
                 currentQuestion: nextQuestion,
                 gameStage: !questions[nextQuestion] ? STAGES[2] : state.gameStage,
+                disableAnswerButton: true,
             }
         case "NEW_GAME":
             return initialState;
+        case "CHECK_ANSWER":
+            if (!state.disableAnswerButton) return state; // avoid counting more than one click
+
+            const answer = action.payload.answer;
+            const option = action.payload.option;
+            const correctAnswer = (answer === option) ? 1 : 0;
+
+            return {
+                ...state,
+                score: state.score + correctAnswer,
+                disableAnswerButton: false
+            };
         default:
             return state;
     }
