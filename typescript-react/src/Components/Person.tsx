@@ -1,4 +1,5 @@
-import { FC, ChangeEvent, useState } from "react";
+import { FC, ChangeEvent, useState, useContext } from "react";
+import { AppContext } from "./../App";
 
 export enum HairColor {
   Blonde = "Your hair is blonde, good for you",
@@ -15,6 +16,8 @@ interface Props {
 }
 
 const Person: FC<Props> = ({ name, age, email, hairColor }) => {
+  const appState = useContext(AppContext);
+  console.log(appState);
   // const Person = ({name, age, email}: Props) => {
   const [country, setCountry] = useState<string | null>(null);
 
