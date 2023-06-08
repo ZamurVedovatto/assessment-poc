@@ -1,33 +1,45 @@
-import { FC, ChangeEvent, useState } from 'react'
+import { FC, ChangeEvent, useState } from "react";
+
+export enum HairColor {
+  Blonde = "Your hair is blonde, good for you",
+  Brown = "Color hair color",
+  Pink = "Wow that is so cool",
+}
 
 interface Props {
-    name: string;
-    age: number;
-    email?: string;
-    // setName: (name: string) => string;
+  name: string;
+  age: number;
+  email?: string;
+  hairColor: HairColor;
+  // setName: (name: string) => string;
 }
 
-const Person: FC<Props> = ({name, age, email}) => {
-// const Person = ({name, age, email}: Props) => {
-    const [country, setCountry] = useState<string | null>(null);
+const Person: FC<Props> = ({ name, age, email, hairColor }) => {
+  // const Person = ({name, age, email}: Props) => {
+  const [country, setCountry] = useState<string | null>(null);
 
-    const handleChange = (event: ChangeEvent<HTMLInputEvent>) => {
-        setCountry(event.target.value)
-    }
+  type NameType = "Pedro" | "Jack";
+  const nameForType: NameType = "Jack";
 
-    return (
-        <>
-            <h1>{name}</h1>
-            <h1>{age}</h1>
-            <h1>{email}</h1>
-            <input
-                placeholder="Write down your Country.."
-                // onChange={(e: React.ChangeEvent<HTMLInputEvent>) => setCountry(e.target.value)}
-                onChange={handleChange}
-                />
-            <span>{country}</span>
-        </>
-    )
-}
+  const handleChange = (event: ChangeEvent<HTMLInputEvent>) => {
+    setCountry(event.target.value);
+  };
 
-export default Person
+  return (
+    <>
+      <h1>{name}</h1>
+      <h1>{age}</h1>
+      <h1>{email}</h1>
+      <h1>{hairColor}</h1>
+      <input
+        placeholder="Write down your Country.."
+        // onChange={(e: React.ChangeEvent<HTMLInputEvent>) => setCountry(e.target.value)}
+        onChange={handleChange}
+      />
+      <p>{country}</p>
+      <p>{nameForType}</p>
+    </>
+  );
+};
+
+export default Person;

@@ -1,5 +1,5 @@
 import { FC }from 'react'
-import Person from './Components/Person'
+import Person, { HairColor } from './Components/Person'
 
 const App: FC = () => {
   return (
@@ -7,6 +7,7 @@ const App: FC = () => {
       <Person
         name={'test'}
         age={20}
+        hairColor={HairColor.Pink}
         />
     </div>
   )
