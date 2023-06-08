@@ -1,8 +1,14 @@
 import { FC }from 'react'
+import Person from './Components/Person'
 
 const App: FC = () => {
   return (
-    <div>App</div>
+    <div>
+      <Person
+        name={'test'}
+        age={20}
+        />
+    </div>
   )
 }
 
