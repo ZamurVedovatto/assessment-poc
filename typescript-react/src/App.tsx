@@ -1,11 +1,7 @@
 import { FC, createContext } from "react";
-import Person, { HairColor } from "./Components/Person";
-
-interface AppContextInterface {
-  name: string;
-  age: number;
-  country: string;
-}
+import Person from "./Components/Person";
+import { AppContextInterface } from "./Interfaces.ts";
+import { HairColor } from "./Enums.ts";
 
 export const AppContext = createContext<AppContextInterface | null>(null);
 

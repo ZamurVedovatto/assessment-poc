@@ -1,11 +1,6 @@
 import { FC, ChangeEvent, useState, useContext } from "react";
 import { AppContext } from "./../App";
-
-export enum HairColor {
-  Blonde = "Your hair is blonde, good for you",
-  Brown = "Color hair color",
-  Pink = "Wow that is so cool",
-}
+import { HairColor } from "./../Enums";
 
 interface Props {
   name: string;
