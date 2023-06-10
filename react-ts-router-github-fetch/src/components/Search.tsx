@@ -1,4 +1,4 @@
-import { FC, useState, KeyboardEvent } from "react";
+import { FC, useState, useEffect, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 import { SearchProps } from "./../types/Search.ts";
 import classes from "./Search.module.css";
@@ -11,6 +11,10 @@ const Search: FC<SearchProps> = ({ loadUser }) => {
       loadUser(userName);
     }
   };
+
+  useEffect(() => {
+    loadUser(userName);
+  }, []);
 
   return (
     <div className={classes.search}>
