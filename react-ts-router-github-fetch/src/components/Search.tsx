@@ -24,8 +24,8 @@ const Search: FC<SearchProps> = ({ loadUser }) => {
           onKeyDown={handleKeyDown}
           value={userName}
         />
-        <button>
-          <BsSearch onClick={() => loadUser(userName)} />
+        <button onClick={() => loadUser(userName)}>
+          <BsSearch />
         </button>
       </div>
     </div>
